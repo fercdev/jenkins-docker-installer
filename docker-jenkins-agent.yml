@@ -1,11 +1,11 @@
 services:
   jenkins-agent:
     image: jenkins/inbound-agent:latest
-    container_name: jenkins-agent-2
+    container_name: jenkins-agent-1
     environment:
       JENKINS_URL: http://jenkins:8080
-      JENKINS_AGENT_NAME: agent-2
-      JENKINS_SECRET: 2d95a0b94702da4b4c8f2f2a966d5382896cd9f29e1744187ef94efa85486a9a
+      JENKINS_AGENT_NAME: agent-1
+      JENKINS_SECRET: b3eebb398bfc04f5bfe3ed7d1f4b7076de022e95b7d2e26c636d8955886d84f1
       JENKINS_AGENT_WORKDIR: /home/jenkins
     networks:
       - agent-net
