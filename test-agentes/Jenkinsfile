@@ -1,0 +1,12 @@
+pipeline {
+    agent {
+        label 'agent-1'
+    }
+    stages {
+        stage('validar hello world') {
+            steps {
+                sh 'echo Hello world: $(hostname)'
+            }
+        }
+    }
+}
