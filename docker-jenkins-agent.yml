@@ -5,7 +5,7 @@ services:
     environment:
       JENKINS_URL: http://jenkins:8080
       JENKINS_AGENT_NAME: agent-2
-      JENKINS_SECRET: 70b458337d126ac8d46e61b221f9964a54e446fdeb32b6487e317c285cea498c
+      JENKINS_SECRET: 2d95a0b94702da4b4c8f2f2a966d5382896cd9f29e1744187ef94efa85486a9a
       JENKINS_AGENT_WORKDIR: /home/jenkins
     networks:
       - agent-net
