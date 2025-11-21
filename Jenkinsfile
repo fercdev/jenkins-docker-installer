@@ -1,23 +1,27 @@
 pipeline {
-    agent {
-        label 'agent-1'
-    }
+
+    agent any
+  
     stages {
-        stage('validar hello world') {
+        stage('Construir') {
+            when {
+                branch 'main'
+            }
+
             steps {
-                sh 'echo Hello world: $(hostname)'
+                echo "Construye solo con la rama Main"
             }
         }
 
-        stage('segundo step') {
-            steps {
-                sh 'echo Hello world2: $(date)'
+        stage('Pruebas') {
+            when {
+                not {
+                    branch 'develop'
+                }
             }
-        }
 
-        stage('tercer step') {
             steps {
-                sh 'echo Hello world3: $(date)'
+                echo "Ejecute las pruebas condicionales con la rama que no sea develop"
             }
         }
     }
