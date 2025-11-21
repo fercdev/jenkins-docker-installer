@@ -36,4 +36,24 @@
 docker run -d --name jenkins-agent-1 -e JENKINS_URL=http://host.docker.internal:8080 -e JENKINS_AGENT_NAME=agent-1 -e JENKINS_SECRET=9bf1ee4364bb3cc858b154b01954e36c355acd89c6345f8d08425ff180d922c3 -e JENKINS_AGENT_WORKDIR=/home/jenkins jenkins/inbound-agent:latest
 
 
-10- 
+Para contruir la imagen del agente 1 de jenkins 
+10- primero usamos el archivo Dockerfile de la carpeta "agente-dockerfile"
+
+	usamos el comando de docker:
+	 docker build -t jenkins-custom-agent:latest .      (tener en cuenta que debe ser dentro de la carpeta "agente-dockerfile")
+
+11- verificar que se ha creado 
+
+	docker images jenkins-custom-agent:latest
+
+12- consideraciones 
+	12.1- Verificar que el contenedor de "jenkins" esta operativo
+	12.2- Verificar que el secret sea el que nos provee el servidor de jenkins en la web "b3eebb398bfc04f5bfe3ed7d1f4b7076de022e95b7d2e26c636d8955886d84f1"
+	12.3- Verificar que estamos en la misma red
+
+	levantamos el archivo "docker-jenkins-agent.yml"
+
+	con el comando: 
+	docker compose -f docker-jenkins-agent.yml up -d
+
+	
