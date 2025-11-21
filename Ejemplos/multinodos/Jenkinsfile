@@ -1,0 +1,21 @@
+pipeline {
+
+    agent none
+  
+    stages {
+        stage('Primera etapa') {
+            agent { label 'nodo-linux'}
+
+            steps {
+                echo "Echo desde mi agente del nodo linux"
+            }
+        }
+
+        stage('Segunda etapa') {
+            agent { label 'nodo-windows'}
+            steps {
+                echo "Echo desde mi agente del nodo windows"
+            }
+        }
+    }
+}

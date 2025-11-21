@@ -1,0 +1,21 @@
+pipeline {
+    agent none
+
+    environment {
+        CUSTOM_VAR = 'mi_variable'
+    }
+  
+    stages {
+        stage('Compilar proyecto node') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
+
+            steps {
+                echo "El valor de mi variable CUSTOM_VAR es: ${env.CUSTOM_VAR}"
+            }
+        }
+    }
+}

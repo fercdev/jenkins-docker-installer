@@ -1,0 +1,21 @@
+pipeline {
+
+    agent any
+  
+    stages {
+        stage('Tareas en paralelo') {
+            parallel {
+                stage('Prueba unitaria') {
+                    steps {
+                        echo 'ejecutando pruebas'
+                    }
+                }
+                stage('Pruebas integracion') {
+                    steps {
+                        echo 'Ejecutando pruebas de integracion'
+                    }
+                }
+            }
+        }
+    }
+}

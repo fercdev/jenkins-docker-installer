@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Input aprobacion manual') {
+            steps {
+                input message: 'Continuar con el deploy ?', ok: 'Si'
+                echo "Continuando con el despliegue..."
+            }
+        }
+    }
+}

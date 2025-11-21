@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    triggers {
+        pollSCM('H/5 * * * *') // Cada 5 minutos va a consultar al repositorio de GIT vinculado si es que hubieron modificaciones
+    }
+  
+    stages {
+        stage('Build') {
+            steps {
+                npm run build
+            }
+        }
+    }
+}

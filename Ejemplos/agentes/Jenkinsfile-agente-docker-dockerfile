@@ -1,0 +1,16 @@
+pipeline {
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+            dir 'docker'
+        }
+    }
+  
+    stages {
+        stage('Construir una imagen de docker') {
+            steps {
+                echo 'Construyendo un Dockerfile custom'
+            }
+        }
+    }
+}

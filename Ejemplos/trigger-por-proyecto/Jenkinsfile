@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    triggers {
+        upstream(upstreamProjects: 'pipeline-environment,pipeline-parallel', threshold: hudson.model.Result.SUCCESS)
+    }
+  
+    stages {
+        stage('Build DESPUES DE CORRER MI PIPELINE ENVIRONMENT') {
+            steps {
+                echo 'Disparando mi job despues del env..'
+            }
+        }
+    }
+}

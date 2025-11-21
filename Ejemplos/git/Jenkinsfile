@@ -1,0 +1,12 @@
+pipeline {
+
+    agente any
+
+    stages {
+        stage('Clonar repo') {
+            steps {
+                git url: 'https://github.com/tu-reposo.git'
+            }
+        }
+    }
+}

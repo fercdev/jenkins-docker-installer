@@ -1,0 +1,16 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.8.4-openjdk-11'
+            args '-myar'
+        }
+    }
+  
+    stages {
+        stage('Compilar java') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+    }
+}

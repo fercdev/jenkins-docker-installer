@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    triggers {
+        cron('* * * * *')
+    }
+  
+    stages {
+        stage('Ejemplo de trigger cron cada minuto') {
+            steps {
+                echo "Proceso de job ejecutandose cada minuto"
+            }
+        }
+    }
+}

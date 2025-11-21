@@ -1,0 +1,18 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Node version') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
+
+            steps {
+                sh 'node --version'
+                sh 'npm --version'
+            }
+        }
+    }
+}

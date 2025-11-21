@@ -1,0 +1,29 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Build de una imagen de maven') {
+            agent {
+                docker {
+                    image 'maven:3-openjdk-11'
+                }
+            }
+
+            steps {
+               sh 'mvn --version'
+            }
+        }
+
+        stage('Node version') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
+
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}

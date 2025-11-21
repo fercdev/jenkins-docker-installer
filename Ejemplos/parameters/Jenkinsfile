@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'NAME_PARAMETER', defaultValue: 'Fer', description: 'nombre parametro')
+        booleanParam(name: 'IS_OLD', defaultValue: true, description: 'parametro booleano')
+        choice(name: 'ENV_DEPLOY', choices: ['dev', 'qa', 'prd'], description: 'Entornos de deploy')
+        text(name: 'COMMENTS', defaultValue: 'Comentarios del pipeline', description: 'Texto de comentarios del pipeline')
+    }
+  
+    stages {
+        stage('Mostrar parameters') {
+            steps {
+                echo "Dato del parameter string: ${params.NAME_PARAMETER}"
+                echo "Dato del parameter boolean: ${params.IS_OLD}"
+                echo "Dato del parameter choice: ${params.ENV_DEPLOY}"
+                echo "Dato del parameter text: ${params.COMMENTS}"
+            }
+        }
+    }
+}

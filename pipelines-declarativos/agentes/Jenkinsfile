@@ -1,0 +1,41 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('docker image') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
+            steps {
+                sh 'node --version'
+                sh 'npm --version'
+            }
+        }
+
+        stage('Test python') {
+            agent {
+                docker {
+                    image 'python:3.10-alpine'
+                }
+            }
+
+            steps {
+                sh 'python --version'
+            }
+        }
+
+        stage('Test maven') {
+            agent {
+                docker {
+                    image 'maven:3-openjdk-11'
+                }
+            }
+
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
+}

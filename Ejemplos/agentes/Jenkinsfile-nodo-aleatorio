@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    environment {
+        CUSTOM_VAR = 'mi_variable'
+    }
+  
+    stages {
+        stage('Mostrar variables') {
+            steps {
+                echo "El valor de mi variable CUSTOM_VAR es: ${env.CUSTOM_VAR}"
+            }
+        }
+    }
+}

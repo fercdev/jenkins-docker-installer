@@ -1,0 +1,22 @@
+pipeline {
+
+    agent any
+  
+    stages {
+        stage('Mostrar variables') {
+            steps {
+                echo "El valor de mi variable CUSTOM_VAR es: ${env.CUSTOM_VAR}"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline ejecutado de manera satisfactoria'
+        }
+
+        failure {
+            echo 'El pipeline Fallo'
+        }
+    }
+}

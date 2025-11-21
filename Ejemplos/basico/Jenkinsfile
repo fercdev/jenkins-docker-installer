@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Inicio') {
+            steps {
+                echo 'Pipeline paso inicial'
+            }
+        }
+        stage('Compilar') {
+            steps {
+                echo 'Pipeline paso de compilacion'
+            }
+        }
+        stage('Pruebas') {
+            steps {
+                echo 'Pipeline paso pruebas'
+            }
+        }
+        stage('Final') {
+            steps {
+                echo 'Pipeline paso final'
+            }
+        }
+    }
+}
