@@ -8,6 +8,14 @@ pipeline {
                 echo "El valor de mi variable CUSTOM_VAR es: ${env.CUSTOM_VAR}"
             }
         }
+
+        stage('Forzar fallo') {
+            steps {
+                script {
+                    error("Fallo intencional para probar post-ejecución")
+                }
+            }
+        }
     }
 
     post {

@@ -3,8 +3,9 @@ pipeline {
 
     stages {
         stage('Input aprobacion manual') {
+            agent none
             steps {
-                input message: 'Continuar con el deploy ?', ok: 'Si'
+                input message: "Continuar con el deploy ?"
                 echo "Continuando con el despliegue..."
             }
         }
